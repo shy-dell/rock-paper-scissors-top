@@ -30,13 +30,13 @@ function getHumanChoice() {
 function playRound(hChoice,cChoice) {
 
     if (hChoice[1] === cChoice[1]) {
-        console.log(`It's a tie! You both input ${hChoice[0]} The score is now ${hScore} for you v. ${cScore} for the computer.`);
+        console.log(`It's a tie! You both input ${hChoice[0]}. The score is now ${hScore} for you v. ${cScore} for the computer.`);
     } else if (hChoice[1] > cChoice[1]) {
         hScore ++;
         console.log(`You won, congrats! You chose ${hChoice[0]} and the computer chose ${cChoice[0]}. The score is now ${hScore} for you v. ${cScore} for the computer.`);
     } else {
         cScore ++;
-        console.log(`Looks like the computer won :( You chose ${hChoice[0]} and the computer chose ${cChoice[0]}. The score is now ${hScore} for you v. ${cScore} for the computer. `)
+        console.log(`Looks like the computer won :(. You chose ${hChoice[0]} and the computer chose ${cChoice[0]}. The score is now ${hScore} for you v. ${cScore} for the computer. `)
     }
     return [hScore, cScore];
 };
