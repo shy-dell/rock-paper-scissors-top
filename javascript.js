@@ -11,7 +11,7 @@ function getComputerChoice() {
         compChoice = "Scissors";
         randNum = 3;
     }
-    return compChoice, randNum;
+    return [compChoice, randNum];
 }
 
 // getComputerChoice();
@@ -32,20 +32,24 @@ function getHumanChoice() {
 }
 // getHumanChoice()
 function playRound(hChoice,cChoice) {
-    if (hChoice.toLowerCase() === cChoice.toLowerCase()) {
-        console.log("It's a tie!");
 
+    if (hChoice === cChoice[1]) {
+        console.log(`It's a tie! The score is now ${hScore} for you v. ${cScore} for the computer.`);
+    } else if (hChoice > cChoice[1]) {
+        hScore ++;
+        console.log(`You won, congrats! The score is now ${hScore} for you v. ${cScore} for the computer.`);
+    } else {
+        cScore ++;
+        console.log(`Looks like the computer won :( The score is now ${hScore} for you v. ${cScore} for the computer. `)
     }
-
-}
+    return [hScore, cScore];
+};
 
 function playGame() {
     let roundCount = 1;
-    let hScore = 0;
-    let cScore = 0;
 
     while (roundCount < 6) {
-        console.log(`This is game ${roundCount}`)
+        console.log(`This is Round ${roundCount}, you will play to 5 Rounds to determine the winner!`)
         
         const hSelection = getHumanChoice();
         const cSelection = getComputerChoice();
@@ -53,4 +57,21 @@ function playGame() {
         
         roundCount ++ ;
     };
+    if (hScore > cScore) {
+        console.log("Congrats! You are the winner");
+    } else {
+        console.log("Too bad!");
+    }
+
+    const again = prompt("Try Again?", "Yes");
+    if (again === "Yes") {
+        playGame()
+    } else {
+        console.log("You didn't input 'Yes' so we'll assume you don't want to play again right now! Thanks for playing!")
+        return
+    }
 };
+
+let hScore = 0;
+let cScore = 0;
+playGame();
