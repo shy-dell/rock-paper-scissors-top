@@ -57,14 +57,18 @@ function playGame() {
         
         roundCount ++ ;
     };
+    // winner
     if (hScore > cScore) {
         console.log("Congrats! You are the winner");
+    // Loser
     } else {
-        console.log("Too bad!");
+        console.log("Too bad! Looks like you didn't win that time!");
     }
 
     const again = prompt("Try Again?", "Yes");
     if (again === "Yes") {
+        hScore = 0
+        cScore = 0
         playGame()
     } else {
         console.log("You didn't input 'Yes' so we'll assume you don't want to play again right now! Thanks for playing!")
