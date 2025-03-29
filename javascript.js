@@ -53,8 +53,11 @@ function playGame() {
         
         roundCount ++ ;
     };
+    // Tie
+    if (hScore === cScore) {
+        console.log("It's a tie! No one wins this one!");
     // winner
-    if (hScore > cScore) {
+    } else if (hScore > cScore) {
         console.log("Congrats! You are the winner");
     // Loser
     } else {
