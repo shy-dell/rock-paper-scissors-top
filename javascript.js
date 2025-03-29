@@ -13,7 +13,12 @@ function getComputerChoice() {
 
 getComputerChoice();
 
+const playButton = document.querySelector("#playButton");
+
 function getHumanChoice() {
-    let humanChoice = prompt("Input one of: 'Rock', 'Paper', 'Scissors' to play.", "Rock");
-    console.log(humanChoice);
+    playButton.addEventListener("click", () => {
+        let humanChoice = prompt("Input one of: 'Rock', 'Paper', 'Scissors' to play.", "Rock");
+        console.log(humanChoice);
+});
 }
+getHumanChoice();
