@@ -14,10 +14,6 @@ function getComputerChoice() {
     return [compChoice, randNum];
 }
 
-// getComputerChoice();
-
-const playButton = document.querySelector("#playButton");
-
 function getHumanChoice() {
     let humanChoice = prompt("Input one of: 'Rock', 'Paper', 'Scissors' to play.", "Rock");
     let humanChoiceVal;
@@ -30,7 +26,7 @@ function getHumanChoice() {
     }
     return [humanChoice, humanChoiceVal];
 }
-// getHumanChoice()
+
 function playRound(hChoice,cChoice) {
 
     if (hChoice[1] === cChoice[1]) {
