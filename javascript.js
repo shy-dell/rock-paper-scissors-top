@@ -43,22 +43,19 @@ function playRound(hChoice,cChoice) {
 };
 
 function playGame(selection) {
-    let roundCount = 1;
     const hSelection = getHumanChoice(selection);
     const cSelection = getComputerChoice();
     playRound(hSelection,cSelection);
-
-    // Tie
-    if (hScore === cScore) {
-        console.log("It's a tie! No one wins this one!");
-    // winner
-    } else if (hScore > cScore) {
-        console.log("Congrats! You are the winner");
-    // Loser
-    } else {
-        console.log("Too bad! Looks like you didn't win that time!");
+    
+    if (hScore == 5 || cScore == 5) {
+        // winner
+        if (hScore > cScore) {
+            console.log("Congrats! You are the winner");
+        // Loser
+        } else {
+            console.log("Too bad! Looks like you didn't win that time!");
+        }
     }
-
     // const again = prompt('Try Again?', 'Yes');
     // if (again === 'Yes') {
     //     hScore = 0
