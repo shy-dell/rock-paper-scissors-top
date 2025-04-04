@@ -55,16 +55,12 @@ function playGame(selection) {
         } else {
             console.log("Too bad! Looks like you didn't win that time!");
         }
+        hScore = 0;
+        cScore = 0;
+        console.log('The score has been reset to 0, feel free to play again.');
+        return;
     }
-    // const again = prompt('Try Again?', 'Yes');
-    // if (again === 'Yes') {
-    //     hScore = 0
-    //     cScore = 0
-    //     playGame()
-    // } else {
-    //     console.log('You didn't input 'Yes' so we'll assume you don't want to play again right now! Thanks for playing!')
-    //     return
-    // }
+    
 };
 
 
