@@ -31,13 +31,16 @@ function getHumanChoice(selection) {
 function playRound(hChoice,cChoice) {
 
     if (hChoice[1] === cChoice[1]) {
-        console.log(`It's a tie! You both input ${hChoice[0]}. The score is now ${hScore} for you v. ${cScore} for the computer.`);
+        resultsPara.textContent = `It's a tie! You both input ${hChoice[0]}.`;
+        scorePara.textContent = `Current Score: Player = ${hScore} | Computer = ${cScore}`;
     } else if (hChoice[1] > cChoice[1]) {
         hScore ++;
-        console.log(`You won, congrats! You chose ${hChoice[0]} and the computer chose ${cChoice[0]}. The score is now ${hScore} for you v. ${cScore} for the computer.`);
+        resultsPara.textContent = `You won, congrats! You chose ${hChoice[0]} and the computer chose ${cChoice[0]}.`;
+        scorePara.textContent = `Current Score: Player = ${hScore} | Computer = ${cScore}`;
     } else {
         cScore ++;
-        console.log(`Looks like the computer won :(. You chose ${hChoice[0]} and the computer chose ${cChoice[0]}. The score is now ${hScore} for you v. ${cScore} for the computer. `)
+        resultsPara.textContent = `Looks like the computer won :( You chose ${hChoice[0]} and the computer chose ${cChoice[0]}.`;
+        scorePara.textContent = `Current Score: Player = ${hScore} | Computer = ${cScore}`;
     }
     return [hScore, cScore];
 };
@@ -50,20 +53,32 @@ function playGame(selection) {
     if (hScore == 5 || cScore == 5) {
         // winner
         if (hScore > cScore) {
-            console.log("Congrats! You are the winner");
+            resultsPara.textContent = "Congrats! You are the winner";
         // Loser
         } else {
-            console.log("Too bad! Looks like you didn't win that time!");
+            resultsPara.textContent = "Too bad! Looks like you didn't win that time!";
         }
         hScore = 0;
         cScore = 0;
-        console.log('The score has been reset to 0, feel free to play again.');
+        resultsPara.textContent = `The score has been reset to ${hScore} - ${cScore}, feel free to play again.`;
         return;
     }
     
 };
 
+// init global const / variables
+const results = document.querySelector('.results');
+const resultsPara = document.createElement('p');
+results.appendChild(resultsPara);
 
+const score = document.querySelector('.score');
+const scorePara = document.createElement('p');
+results.appendChild(scorePara);
+
+let hScore = 0;
+let cScore = 0;
+
+// start selection input
 let selection;
 let input = document.querySelector('#inputs');
 input.addEventListener('click', (e) => {
@@ -85,6 +100,3 @@ input.addEventListener('click', (e) => {
     }
     playGame(selection);
 })
-
-let hScore = 0;
-let cScore = 0;
