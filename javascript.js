@@ -47,7 +47,7 @@ function playRound(hChoice,cChoice) {
 };
 
 function playGame(selection) {
-    if (hScore <= 5 && cScore <= 5){
+    if (hScore < 5 && cScore < 5){
         const hSelection = getHumanChoice(selection);
         const cSelection = getComputerChoice();
         playRound(hSelection,cSelection);
