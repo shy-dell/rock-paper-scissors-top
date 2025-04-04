@@ -47,7 +47,7 @@ function playRound(hChoice,cChoice) {
 };
 
 function playGame(selection) {
-    if (hScore < 5 && cScore < 5){
+    if (hScore <= 5 && cScore <= 5){
         const hSelection = getHumanChoice(selection);
         const cSelection = getComputerChoice();
         playRound(hSelection,cSelection);
@@ -91,15 +91,12 @@ input.addEventListener('click', (e) => {
 
     switch(target.id) {
         case 'rock':
-            console.log("Rock selected");
             selection = 'rock';
             break;
         case 'paper':
-            console.log("Paper selected");
             selection = 'paper';
             break;
         case 'scissors':
-            console.log("Scissors selected");
             selection = 'scissors';
             break;
     }
