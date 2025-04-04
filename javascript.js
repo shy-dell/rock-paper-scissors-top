@@ -43,16 +43,10 @@ function playRound(hChoice,cChoice) {
 
 function playGame() {
     let roundCount = 1;
+    const hSelection = getHumanChoice();
+    const cSelection = getComputerChoice();
+    playRound(hSelection,cSelection);
 
-    while (roundCount < 6) {
-        console.log(`This is Round ${roundCount}, you will play to 5 Rounds to determine the winner!`)
-        
-        const hSelection = getHumanChoice();
-        const cSelection = getComputerChoice();
-        playRound(hSelection,cSelection);
-        
-        roundCount ++ ;
-    };
     // Tie
     if (hScore === cScore) {
         console.log("It's a tie! No one wins this one!");
@@ -64,15 +58,15 @@ function playGame() {
         console.log("Too bad! Looks like you didn't win that time!");
     }
 
-    const again = prompt("Try Again?", "Yes");
-    if (again === "Yes") {
-        hScore = 0
-        cScore = 0
-        playGame()
-    } else {
-        console.log("You didn't input 'Yes' so we'll assume you don't want to play again right now! Thanks for playing!")
-        return
-    }
+    // const again = prompt("Try Again?", "Yes");
+    // if (again === "Yes") {
+    //     hScore = 0
+    //     cScore = 0
+    //     playGame()
+    // } else {
+    //     console.log("You didn't input 'Yes' so we'll assume you don't want to play again right now! Thanks for playing!")
+    //     return
+    // }
 };
 
 let hScore = 0;
