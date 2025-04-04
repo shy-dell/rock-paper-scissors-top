@@ -1,3 +1,4 @@
+// Define functions
 function getComputerChoice() {
     let compChoice
     let randNum = Math.floor(Math.random() * 100)
