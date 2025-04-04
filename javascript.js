@@ -46,12 +46,12 @@ function playRound(hChoice,cChoice) {
 };
 
 function playGame(selection) {
-    const hSelection = getHumanChoice(selection);
-    const cSelection = getComputerChoice();
-    playRound(hSelection,cSelection);
-    
-    if (hScore == 5 || cScore == 5) {
-        // winner
+    if (hScore < 5 && cScore < 5){
+        const hSelection = getHumanChoice(selection);
+        const cSelection = getComputerChoice();
+        playRound(hSelection,cSelection);
+    } else {
+    // winner
         if (hScore > cScore) {
             resultsPara.textContent = "Congrats! You are the winner. The score will be reset in 5 seconds if you would like to play again.";
         // Loser
@@ -59,8 +59,7 @@ function playGame(selection) {
             resultsPara.textContent = "Too bad! Looks like you didn't win that time! The score will be reset in 5 seconds if you would like to play again.";
         }
         setTimeout(resetScoreBoard, 5000);
-        
-    }
+    };
     
 };
 
