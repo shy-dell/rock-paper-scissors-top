@@ -53,17 +53,22 @@ function playGame(selection) {
     if (hScore == 5 || cScore == 5) {
         // winner
         if (hScore > cScore) {
-            resultsPara.textContent = "Congrats! You are the winner";
+            resultsPara.textContent = "Congrats! You are the winner. The score will be reset in 5 seconds if you would like to play again.";
         // Loser
         } else {
-            resultsPara.textContent = "Too bad! Looks like you didn't win that time!";
+            resultsPara.textContent = "Too bad! Looks like you didn't win that time! The score will be reset in 5 seconds if you would like to play again.";
         }
-        hScore = 0;
-        cScore = 0;
-        resultsPara.textContent = `The score has been reset to ${hScore} - ${cScore}, feel free to play again.`;
-        return;
+        setTimeout(resetScoreBoard, 5000);
+        
     }
     
+};
+
+function resetScoreBoard() {
+    hScore = 0;
+    cScore = 0;
+    resultsPara.textContent = `The score has been reset to ${hScore} - ${cScore}, feel free to play again.`;
+    return;
 };
 
 // init global const / variables
