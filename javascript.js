@@ -2,24 +2,25 @@ function getComputerChoice() {
     let compChoice
     let randNum = Math.floor(Math.random() * 100)
     if (randNum <= 33) {
-        compChoice = "Rock";
+        compChoice = 'Rock';
         randNum = 1;
     } else if (randNum <= 66) {
-        compChoice = "Paper";
+        compChoice = 'Paper';
         randNum = 2;
     } else {
-        compChoice = "Scissors";
+        compChoice = 'Scissors';
         randNum = 3;
     }
     return [compChoice, randNum];
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt("Input one of: 'Rock', 'Paper', 'Scissors' to play.", "Rock");
+function getHumanChoice(selection) {
+    let humanChoice = selection;
+
     let humanChoiceVal;
-    if (humanChoice.toLowerCase() == "rock") {
+    if (humanChoice.toLowerCase() == 'rock') {
         humanChoiceVal = 1;
-    } else if (humanChoice.toLowerCase() == "paper"){
+    } else if (humanChoice.toLowerCase() == 'paper'){
         humanChoiceVal = 2;
     } else {
         humanChoiceVal = 3;
@@ -41,9 +42,9 @@ function playRound(hChoice,cChoice) {
     return [hScore, cScore];
 };
 
-function playGame() {
+function playGame(selection) {
     let roundCount = 1;
-    const hSelection = getHumanChoice();
+    const hSelection = getHumanChoice(selection);
     const cSelection = getComputerChoice();
     playRound(hSelection,cSelection);
 
@@ -58,17 +59,39 @@ function playGame() {
         console.log("Too bad! Looks like you didn't win that time!");
     }
 
-    // const again = prompt("Try Again?", "Yes");
-    // if (again === "Yes") {
+    // const again = prompt('Try Again?', 'Yes');
+    // if (again === 'Yes') {
     //     hScore = 0
     //     cScore = 0
     //     playGame()
     // } else {
-    //     console.log("You didn't input 'Yes' so we'll assume you don't want to play again right now! Thanks for playing!")
+    //     console.log('You didn't input 'Yes' so we'll assume you don't want to play again right now! Thanks for playing!')
     //     return
     // }
 };
 
+
+let selection;
+let input = document.querySelector('#inputs');
+input.addEventListener('click', (e) => {
+    let target = e.target;
+
+    switch(target.id) {
+        case 'rock':
+            console.log("Rock selected");
+            selection = 'rock';
+            break;
+        case 'paper':
+            console.log("Paper selected");
+            selection = 'paper';
+            break;
+        case 'scissors':
+            console.log("Scissors selected");
+            selection = 'scissors';
+            break;
+    }
+    playGame(selection);
+})
+
 let hScore = 0;
 let cScore = 0;
-playGame();
